@@ -18,7 +18,7 @@ namespace ConsoleApp1
             //Console.WriteLine(result);
             
             Program p = new Program();
-            Console.WriteLine(p.Hanoi(8)-1);
+            //Console.WriteLine(p.Hanoi(8)-1);
 
             //int x = 10;
             //Console.WriteLine(x.GetType());
