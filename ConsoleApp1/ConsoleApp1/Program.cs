@@ -17,7 +17,7 @@ namespace ConsoleApp1
             //int result = x *= y += z;
             //Console.WriteLine(result);
             
-            Program p = new Program();
+            //Program p = new Program();
             //Console.WriteLine(p.Hanoi(8)-1);
 
             //int x = 10;
@@ -69,9 +69,9 @@ namespace ConsoleApp1
                 //Console.WriteLine(stu.score);
                 //Student.ID = 1;
             }
-                Human h = new Human();
-            //    Teacher t = h;
-            //    t.Teach();
+            //Human h = new Human();
+            //Teacher t = h;
+            //t.Teach();
 
             //uint y = 65537;
             //ushort x = (ushort)y;
@@ -81,8 +81,12 @@ namespace ConsoleApp1
             //Console.WriteLine(z);
             //Console.WriteLine(z.GetType());
             //Console.WriteLine(Convert.ToInt32(z));
-
-
+            int counter = 0;
+            for (counter = 0; counter < 10; ++counter)
+            {
+                Console.WriteLine("Helloworld");
+            }
+            Console.WriteLine(counter);
         }
         public long Hanoi(int x)
         {
