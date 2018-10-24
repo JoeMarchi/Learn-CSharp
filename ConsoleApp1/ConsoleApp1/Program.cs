@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,12 +82,39 @@ namespace ConsoleApp1
             //Console.WriteLine(z);
             //Console.WriteLine(z.GetType());
             //Console.WriteLine(Convert.ToInt32(z));
-            int counter = 0;
-            for (counter = 0; counter < 10; ++counter)
+
+            //int counter = 0;
+            //for (counter = 0; counter < 10; ++counter)
+            //{
+            //    Console.WriteLine("Helloworld");
+            //}
+            //Console.WriteLine(counter);
+
+            //int[] intArray = new int[] { 1, 2, 3, 4, 5, 6 };
+            //IEnumerator enumerator = intArray.GetEnumerator();
+            //while (enumerator.MoveNext())
+            //{
+            //    Console.WriteLine(enumerator.Current);
+            //}
+
+
+        }
+        class Student
+        {
+            public int Age;
+            public int Score;
+            public static void Amount()
             {
-                Console.WriteLine("Helloworld");
+                Console.WriteLine();
             }
-            Console.WriteLine(counter);
+            public static void AverageAge()
+            {
+                Console.WriteLine();
+            }
+            public static void AverageScore()
+            {
+                Console.WriteLine();
+            }
         }
         public long Hanoi(int x)
         {
@@ -101,6 +129,7 @@ namespace ConsoleApp1
             }
         }
     }
+
     //struct Student
     //{
     //    public static int ID;
