@@ -17,7 +17,7 @@ namespace ConsoleApp1
             //int z = 5;
             //int result = x *= y += z;
             //Console.WriteLine(result);
-            
+
             //Program p = new Program();
             //Console.WriteLine(p.Hanoi(8)-1);
 
@@ -97,23 +97,51 @@ namespace ConsoleApp1
             //    Console.WriteLine(enumerator.Current);
             //}
 
+            List<Student> stuList = new List<Student>();
+            for (int i = 0; i < 100; i++)
+            {
+                Student stu = new Student();
+                stu.Age = 40;
+                stu.Score = i;
+                stuList.Add(stu);
+            }
+            int totalAge=0;
+            int totalScore=0;
+            foreach (var stu in stuList)
+            {
+                totalAge += stu.Age;
+                totalScore += stu.Score;
+            }
+            Student.AverageAge = totalAge / Student.Amount;
+            Student.AverageScore = totalScore / Student.Amount;
+            Student.ReportAmount();
+            Student.ReportAverageAge();
+            Student.ReportAverageScore();
 
         }
         class Student
         {
             public int Age;
             public int Score;
-            public static void Amount()
+            public static int Amount;
+            public static int AverageAge;
+            public static int AverageScore;
+            public Student()
             {
-                Console.WriteLine();
+                Amount++;
             }
-            public static void AverageAge()
+            public static void ReportAmount()
             {
-                Console.WriteLine();
+                
+                Console.WriteLine(Amount);
             }
-            public static void AverageScore()
+            public static void ReportAverageAge()
             {
-                Console.WriteLine();
+                Console.WriteLine(AverageAge);
+            }
+            public static void ReportAverageScore()
+            {
+                Console.WriteLine(AverageScore);
             }
         }
         public long Hanoi(int x)
