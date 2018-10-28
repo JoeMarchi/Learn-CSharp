@@ -97,73 +97,119 @@ namespace ConsoleApp1
             //    Console.WriteLine(enumerator.Current);
             //}
 
-            List<Student> stuList = new List<Student>();
-            for (int i = 0; i < 100; i++)
-            {
-                Student stu = new Student();
-                stu.Age = 40;
-                stu.Score = i;
-                stuList.Add(stu);
-            }
-            int totalAge=0;
-            int totalScore=0;
-            foreach (var stu in stuList)
-            {
-                totalAge += stu.Age;
-                totalScore += stu.Score;
-            }
-            Student.AverageAge = totalAge / Student.Amount;
-            Student.AverageScore = totalScore / Student.Amount;
-            Student.ReportAmount();
-            Student.ReportAverageAge();
-            Student.ReportAverageScore();
+            //List<Student> stuList = new List<Student>();
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    Student stu = new Student();
+            //    stu.Age += 40;
+            //    stu.Score = i;
+            //    stuList.Add(stu);
+            //}
+            //    int totalAge=0;
+            //    int totalScore=0;
+            //    foreach (var stu in stuList)
+            //    {
+            //        totalAge += stu.Age;
+            //        totalScore += stu.Score;
+            //    }
+            //    Student.AverageAge = totalAge / Student.Amount;
+            //    Student.AverageScore = totalScore / Student.Amount;
+            //    Student.ReportAmount();
+            //    Student.ReportAverageAge();
+            //    Student.ReportAverageScore();
 
+            //public long Hanoi(int x)
+            //{
+            //    if (x == 1)
+            //    {
+            //        return 2;
+            //    }
+            //    else
+            //    {
+            //        long result = 2 * Hanoi(x - 1);
+            //        return result;
+            //    }
+            //}
+
+        //    try
+        //    {
+        //        Student2 stu1 = new Student2();
+        //        stu1.Age = 20;
+        //        Student2 stu2 = new Student2();
+        //        stu2.Age = 10;
+        //        //Console.WriteLine(stu1.Age+stu2.Age);
+        //        if (stu2.Age > 5)
+        //        {
+        //            Console.WriteLine(stu1.Age);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
         }
-        class Student
+
+        //struct Student
+        //{
+        //    public static int ID;
+        //    public long score;
+        //    //int No;
+        //}
+
+
+
+    }
+    class Student2
+    {
+        private int age;
+        public int Age
         {
-            public int Age;
-            public int Score;
-            public static int Amount;
-            public static int AverageAge;
-            public static int AverageScore;
-            public Student()
+            get
             {
-                Amount++;
+                return this.age;
             }
-            public static void ReportAmount()
+            set
             {
-                
-                Console.WriteLine(Amount);
-            }
-            public static void ReportAverageAge()
-            {
-                Console.WriteLine(AverageAge);
-            }
-            public static void ReportAverageScore()
-            {
-                Console.WriteLine(AverageScore);
-            }
-        }
-        public long Hanoi(int x)
-        {
-            if (x == 1)
-            {
-                return 2;
-            }
-            else
-            {
-                long result = 2 * Hanoi(x - 1);
-                return result;
+                if (value > 0 && value < 100)
+                {
+                    this.age = value;
+                }
+                else
+                {
+                    Exception ex1 = new Exception("Age argument is not true");
+                    throw ex1;
+                }
             }
         }
     }
+    class Student
+    {
+        public int Age;
+        public int Score;
+        public static int Amount;
+        public static int AverageAge;
+        public static int AverageScore;
+        public Student()
+        {
+            Age++;
+            //this.Amount++;
+            Amount++;
+            //Student.Amount++;
+        }
+        public static void ReportAmount()
+        {
 
-    //struct Student
-    //{
-    //    public static int ID;
-    //    public long score;
-    //    //int No;
-    //}
+            Console.WriteLine(Amount);
+        }
+        public static void ReportAverageAge()
+        {
+            Console.WriteLine(AverageAge);
+        }
+        public static void ReportAverageScore()
+        {
+            Console.WriteLine(AverageScore);
+        }
+    }
     class Teacher
     {
         public void Teach()
@@ -186,3 +232,5 @@ namespace ConsoleApp1
         }
     }
 }
+
+
