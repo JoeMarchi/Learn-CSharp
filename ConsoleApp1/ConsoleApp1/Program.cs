@@ -131,22 +131,28 @@ namespace ConsoleApp1
             //    }
             //}
 
-        //    try
-        //    {
-        //        Student2 stu1 = new Student2();
-        //        stu1.Age = 20;
-        //        Student2 stu2 = new Student2();
-        //        stu2.Age = 10;
-        //        //Console.WriteLine(stu1.Age+stu2.Age);
-        //        if (stu2.Age > 5)
-        //        {
-        //            Console.WriteLine(stu1.Age);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex.Message);
-        //    }
+            try
+            {
+                Student2 stu1 = new Student2();
+                stu1.Age = 20;
+                Console.WriteLine(stu1.CanWork);
+                Student2 stu2 = new Student2();
+                stu2.Age = 10;
+                
+                //Console.WriteLine(stu1.Age+stu2.Age);
+                if (stu2.Age >0&& stu2.Age <100)
+                {
+                    Console.WriteLine(stu1.Age);
+                    int x = 100;
+                    stu1.Age = 15;
+                }
+                Console.WriteLine(stu1.Age);
+                //Console.WriteLine(x);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         //struct Student
@@ -173,6 +179,7 @@ namespace ConsoleApp1
                 if (value > 0 && value < 100)
                 {
                     this.age = value;
+                    this.CalculateCanWork();
                 }
                 else
                 {
@@ -181,6 +188,38 @@ namespace ConsoleApp1
                 }
             }
         }
+        private bool canWork;
+
+        public bool CanWork
+        {
+            get { return canWork; }
+            
+        }
+        private void CalculateCanWork()
+        {
+            if (this.age >= 18)
+            {
+                this.canWork = true;
+            }
+            else
+            {
+                this.canWork = false;
+            }
+        }
+
+        //public bool CanWork {
+        //    get
+        //    {
+        //        if (this.age >= 18)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //}
     }
     class Student
     {
@@ -198,7 +237,6 @@ namespace ConsoleApp1
         }
         public static void ReportAmount()
         {
-
             Console.WriteLine(Amount);
         }
         public static void ReportAverageAge()
