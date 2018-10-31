@@ -131,27 +131,37 @@ namespace ConsoleApp1
             //    }
             //}
 
+            //try
+            //{
+            //    Student2 stu1 = new Student2();
+            //    stu1.Age = 20;
+            //    Console.WriteLine(stu1.CanWork);
+            //    Student2 stu2 = new Student2();
+            //    stu2.Age = 10;
+
+            //    //Console.WriteLine(stu1.Age+stu2.Age);
+            //    if (stu2.Age >0&& stu2.Age <100)
+            //    {
+            //        Console.WriteLine(stu1.Age);
+            //        int x = 100;
+            //        stu1.Age = 15;
+            //    }
+            //    Console.WriteLine(stu1.Age);
+            //    //Console.WriteLine(x);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            //17 chapter indexer example
             try
             {
-                Student2 stu1 = new Student2();
-                stu1.Age = 20;
-                Console.WriteLine(stu1.CanWork);
-                Student2 stu2 = new Student2();
-                stu2.Age = 10;
-                
-                //Console.WriteLine(stu1.Age+stu2.Age);
-                if (stu2.Age >0&& stu2.Age <100)
-                {
-                    Console.WriteLine(stu1.Age);
-                    int x = 100;
-                    stu1.Age = 15;
-                }
-                Console.WriteLine(stu1.Age);
-                //Console.WriteLine(x);
-            }
-            catch (Exception ex)
+                Indexer index1 = new Indexer();
+                var scoreMath = index1["Math"];
+            }catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
             }
         }
 
@@ -163,6 +173,42 @@ namespace ConsoleApp1
         //}
 
 
+
+    }
+    class Indexer
+    {
+        private Dictionary<string, int> scoreDictionnary = new Dictionary<string, int>();
+
+        public int? this[string subject]
+        {
+            get
+            {
+                if(this.scoreDictionnary.ContainsKey(subject))
+                {
+                    return scoreDictionnary[subject];
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+            set
+            {
+                if (value.HasValue == false)
+                {
+                    throw new Exception("Score can't be null");
+                }
+                if (this.scoreDictionnary.ContainsKey(subject))
+                {
+                    scoreDictionnary[subject] = value.Value;
+                }
+                else
+                {
+                    scoreDictionnary.Add(subject, value.Value);
+                }
+            }
+        }
 
     }
     class Student2
