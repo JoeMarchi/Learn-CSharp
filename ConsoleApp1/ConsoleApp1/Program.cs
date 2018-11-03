@@ -155,14 +155,36 @@ namespace ConsoleApp1
             //}
 
             //17 chapter indexer example
+            //try
+            //{
+            //    Indexer index1 = new Indexer();
+            //    var scoreMath = index1["Math"];
+
+            //}catch(Exception ex)
+            //{
+            //    Console.WriteLine(ex);
+            //}
+
+
             try
             {
-                Indexer index1 = new Indexer();
-                var scoreMath = index1["Math"];
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex);
+                bool b = Staff.StaffFactory("19", "Joe", out Staff st1);
+                if (b == true)
+                {
+                    Console.WriteLine("Name={0},Age={1}", st1.Name, st1.Age);
+                }
+                else
+                {
+                    Console.WriteLine(b);
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+
         }
 
         //struct Student
@@ -174,6 +196,34 @@ namespace ConsoleApp1
 
 
 
+    }
+    class Staff
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+        public static bool StaffFactory(string age, string name, out Staff st1)
+        {
+            try
+            {
+
+                int a = int.Parse(age);
+                st1 = null;
+                if (string.IsNullOrEmpty(name))
+                {
+                    return false;
+                }
+                if (a < 20 || a > 80)
+                {
+                    return false;
+                }
+                st1 = new Staff() { Age = a, Name = name };
+                return true;
+            }
+            catch (Exception)
+            {
+                throw new Exception ("error");
+            }
+            }
     }
     class Indexer
     {
