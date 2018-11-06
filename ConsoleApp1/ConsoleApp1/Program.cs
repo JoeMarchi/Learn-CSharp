@@ -165,25 +165,33 @@ namespace ConsoleApp1
             //    Console.WriteLine(ex);
             //}
 
+            //18 chapter out argument
+            //try
+            //{
+            //    bool b = Staff.StaffFactory("19", "Joe", out Staff st1);
+            //    if (b == true)
+            //    {
+            //        Console.WriteLine("Name={0},Age={1}", st1.Name, st1.Age);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine(b);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
 
-            try
-            {
-                bool b = Staff.StaffFactory("19", "Joe", out Staff st1);
-                if (b == true)
-                {
-                    Console.WriteLine("Name={0},Age={1}", st1.Name, st1.Age);
-                }
-                else
-                {
-                    Console.WriteLine(b);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //18 chapter value&ref argument
+            //Employee em1 = new Employee();
+            //Student stu1 = new Student();
+            //stu1.Age = 20;
+            //Console.WriteLine("{0}-{1}",stu1.GetHashCode(),stu1.Age);
+            //em1.NewEmpolyee(ref stu1);
+            //Console.WriteLine("{0}-{1}",stu1.GetHashCode(),stu1.Age);
 
-
+            //18 chapter params argument
 
         }
 
@@ -196,6 +204,18 @@ namespace ConsoleApp1
 
 
 
+    }
+    
+
+    class Employee
+    {
+        public void NewEmpolyee(ref Student stu1)
+        {
+            stu1 = new Student();
+            stu1.Age = 19;
+            Console.WriteLine("{0}-{1}",stu1.GetHashCode(),stu1.Age);
+            
+        }
     }
     class Staff
     {
