@@ -192,7 +192,9 @@ namespace ConsoleApp1
             //Console.WriteLine("{0}-{1}",stu1.GetHashCode(),stu1.Age);
 
             //18 chapter params argument
-
+            Employee em2 = new Employee();
+            int x =em2.ShowAge("12","24", "Tim");
+            Console.WriteLine(x);
         }
 
         //struct Student
@@ -209,6 +211,17 @@ namespace ConsoleApp1
 
     class Employee
     {
+        public int ShowAge(string m ,params string[] name)
+        {
+            Staff st1 = new Staff();
+            st1.Age = int.Parse(name[0]);
+            st1.Name = name[1];
+            foreach (var item in name)
+            {
+                Console.WriteLine(item);
+            }
+            return st1.Age;
+        }
         public void NewEmpolyee(ref Student stu1)
         {
             stu1 = new Student();
