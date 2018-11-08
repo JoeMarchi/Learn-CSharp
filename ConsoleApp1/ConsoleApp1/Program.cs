@@ -192,9 +192,19 @@ namespace ConsoleApp1
             //Console.WriteLine("{0}-{1}",stu1.GetHashCode(),stu1.Age);
 
             //18 chapter params argument
-            Employee em2 = new Employee();
-            int x =em2.ShowAge("12","24", "Tim");
-            Console.WriteLine(x);
+            //Employee em2 = new Employee();
+            //int x =em2.ShowAge("12","24", "Tim");
+            //Console.WriteLine(x);
+
+            //19 delegate template method
+            ProductFactory productFactory = new ProductFactory();
+            WrapFactory wrapFactory = new WrapFactory();
+            //Func<Product> fun1 = new Func<Product>(productFactory.PizzaFactory);
+            //Func<Product> fun2 = new Func<Product>(productFactory.ToyCarFactory);
+            Box box1 = wrapFactory.WarpFactory(productFactory.PizzaFactory);
+            Box box2 = wrapFactory.WarpFactory(productFactory.ToyCarFactory);
+            Console.WriteLine(box1.Product.Name);
+            Console.WriteLine(box2.Product.Name);
         }
 
         //struct Student
@@ -207,7 +217,39 @@ namespace ConsoleApp1
 
 
     }
-    
+    class Product
+    {
+        public string Name { get; set; }
+    }
+    class Box
+    {
+        public Product Product { get; set; }
+    }
+    class WrapFactory
+    {
+        public Box WarpFactory(Func<Product> getProduct)
+        {
+            Box box = new Box();
+            Product product = getProduct();
+            box.Product = product;
+            return box;
+        }
+    }
+    class ProductFactory
+    {
+        public Product PizzaFactory()
+        {
+            Product pizza = new Product();
+            pizza.Name = "Pizza";
+            return pizza;
+        }
+        public Product ToyCarFactory()
+        {
+            Product toycar = new Product();
+            toycar.Name = "Toycar";
+            return toycar;
+        }
+    }
 
     class Employee
     {
