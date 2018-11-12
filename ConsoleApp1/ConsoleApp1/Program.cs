@@ -196,15 +196,24 @@ namespace ConsoleApp1
             //int x =em2.ShowAge("12","24", "Tim");
             //Console.WriteLine(x);
 
-            //19 delegate template method
-            ProductFactory productFactory = new ProductFactory();
-            WrapFactory wrapFactory = new WrapFactory();
-            //Func<Product> fun1 = new Func<Product>(productFactory.PizzaFactory);
-            //Func<Product> fun2 = new Func<Product>(productFactory.ToyCarFactory);
-            Box box1 = wrapFactory.WarpFactory(productFactory.PizzaFactory);
-            Box box2 = wrapFactory.WarpFactory(productFactory.ToyCarFactory);
-            Console.WriteLine(box1.Product.Name);
-            Console.WriteLine(box2.Product.Name);
+            //19 chapter delegate template method
+            //ProductFactory productFactory = new ProductFactory();
+            //WrapFactory wrapFactory = new WrapFactory();
+            ////Func<Product> fun1 = new Func<Product>(productFactory.PizzaFactory);
+            ////Func<Product> fun2 = new Func<Product>(productFactory.ToyCarFactory);
+            //Box box1 = wrapFactory.WarpFactory(productFactory.PizzaFactory);
+            //Box box2 = wrapFactory.WarpFactory(productFactory.ToyCarFactory);
+            //Console.WriteLine(box1.Product.Name);
+            //Console.WriteLine(box2.Product.Name);
+
+            //19 chapter delegate bad quality code
+            Operation op1 = new Operation();
+            Operation op2 = new Operation();
+            Operation op3 = new Operation();
+            op3.innerOperation = op2;
+            op2.innerOperation = op1;
+            op3.Operate(new object(), null, null);
+
         }
 
         //struct Student
@@ -216,6 +225,35 @@ namespace ConsoleApp1
 
 
 
+    }
+    class Operation
+    {
+        public Action DefaultSuccessCallback { get; set; }
+        public Action DefaultFailureCallback { get; set; }
+        public Operation innerOperation { get; set; }
+
+        public object Operate(object input,Action successCallback,Action failureCallback)
+        {
+            if (successCallback == null)
+            {
+                successCallback = this.DefaultSuccessCallback;
+            }
+            if (failureCallback == null)
+            {
+                failureCallback = this.DefaultFailureCallback;
+            }
+            object result = null;
+            try
+            {
+                result = this.innerOperation.Operate(input, successCallback, failureCallback);
+            }
+            catch
+            {
+                failureCallback();
+            }
+            successCallback();
+            return result;
+        }
     }
     class Product
     {
