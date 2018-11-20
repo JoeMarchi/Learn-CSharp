@@ -207,13 +207,17 @@ namespace ConsoleApp1
             //Console.WriteLine(box2.Product.Name);
 
             //19 chapter delegate bad quality code
-            Operation op1 = new Operation();
-            Operation op2 = new Operation();
-            Operation op3 = new Operation();
-            op3.innerOperation = op2;
-            op2.innerOperation = op1;
-            op3.Operate(new object(), null, null);
+            //Operation op1 = new Operation();
+            //Operation op2 = new Operation();
+            //Operation op3 = new Operation();
+            //op3.innerOperation = op2;
+            //op2.innerOperation = op1;
+            //op3.Operate(new object(), null, null);
 
+            //22 chapter custom event problem
+            //Methor x = new Methor(Delegatetset.Test);
+            
+            //x.Invoke(1, 2);
         }
 
         //struct Student
@@ -225,6 +229,17 @@ namespace ConsoleApp1
 
 
 
+    }
+    public delegate void Methor(int x, double y);
+    class Delegatetset
+    {
+        private Methor methor;
+       
+
+        public static void Test(int f,double g)
+        {
+            Console.WriteLine("(0),(1)",f,g);
+        }
     }
     class Operation
     {
