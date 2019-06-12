@@ -4,14 +4,17 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ConsoleApp1
 {
+
     class Program
     {
         static void Main(string[] args)
         {
+
             //int x = 3;
             //int y = 4;
             //int z = 5;
@@ -214,31 +217,261 @@ namespace ConsoleApp1
             //op2.innerOperation = op1;
             //op3.Operate(new object(), null, null);
 
+            //Myform myform = new Myform();
+            //myform.ShowDialog();
+
             //22 chapter custom event problem
             //Methor x = new Methor(Delegatetset.Test);
-            
+
             //x.Invoke(1, 2);
+            //22 chapter custom event problem(customer)
+            //Customer customer = new Customer();
+            //Waiter waiter = new Waiter();
+            //customer.Order += waiter.Action;
+            //customer.Action();
+            //customer.PayTheBill();
+
+            //Console.ReadLine();
+
+            //25 Parent class,Child class and Base class,Derived class
+            //Car c1 = new Car("Tom");
+
+            //Console.WriteLine(c1.Owner);
+
+            //int a = 12;
+            ////Console.WriteLine(a.GetType().IsValueType);
+            //Mathod1 mathod = new Mathod1((new ModifierTest()).Main_Mod);
+            //mathod.Invoke();
+            //Console.WriteLine(mathod.GetType().IsClass);
+            ////object b = a;
+            ////object b = new object();
+            //string b = "0";
+            //Console.WriteLine(b);
+            //Console.WriteLine(b.GetType().IsClass);
+            //Console.WriteLine(b.GetType().IsValueType);
+            //var deleMod_ex = new DeleMod_ex();
+            //deleMod_ex.Result();
+            Method_Parameter.CreateOrigin();
+        }
+    }
+    class DeleMod_ex
+    {
+        public void Result()
+        {
+            //Action action_ex = new Action(Action_ex);
+            //action_ex.Invoke();
+            //var action_exp = new Action<int,int>(Action_exp);
+            //action_exp.Invoke(5, 2);
+            //Func<int> func_ex = new Func<int>(Func_ex);
+            //Console.WriteLine(func_ex.Invoke());
+            //var func_exp = new Func<int, int, int>(Func_exp);
+            //Console.WriteLine(func_exp.Invoke(10, 10));
+            var method_Act = new Method_Act<int>(Action_exp);
+            method_Act.Invoke(1, 3);
+            var method_Fun = new Method_Fun<int, double>(Func_exp);
+            Console.WriteLine(method_Fun.Invoke(1, 0.005));
+            Func<int,int,int> func = (a, b) => a + b;
+            func(1, 2);
+            Console.WriteLine(func(1, 2));
+        }
+        static void Action_ex()
+        {
+            Console.WriteLine("Action_ex");
+        }
+        static void Action_exp(int x,int y)
+        {
+            Console.WriteLine(x*y);
+        }
+        static int Func_ex()
+        {
+            int x = 1;
+            int y = 2;
+            return x + y;
+        }
+        static double Func_exp(int x,double y)
+        {
+            return x + y;
+        }
+        
+    }
+
+    delegate void Method_Act<T>(T a,T b);
+    delegate A Method_Fun<T,A>(T a, A b);
+    //struct Student
+    //{
+    //    public static int ID;
+    //    public long score;
+    //    //int No;
+    //}
+    class Method_Parameter
+    {
+        public static void CreateOrigin()
+        {
+            Student stu = new Student() { Age = 27};
+            CopyOrigin(stu);
+            Console.WriteLine(CopyOrigin(stu).Age);
+        }
+        static Student CopyOrigin(Student stu)
+        {
+            stu = new Student() { Age = 18};
+            Console.WriteLine(stu.Age);
+            return stu;
+        }
+    }
+
+
+
+    //public delegate void Methor(int x, double y);
+    //class Delegatetset
+    //{
+    //    private Methor methor;
+
+
+    //    public static void Test(int f, double g)
+    //    {
+    //        Console.WriteLine("(0),(1)", f, g);
+    //    }
+    //}
+
+    public class Vehicle
+    {
+        //protected int test;
+        internal int test=2;
+        int test1;
+        //internal static int test;
+        public Vehicle(string owner)
+        {
+            this.Owner = owner;
+            
+        }
+        public string Owner { get; set; }
+        internal void Test2()
+        {
+            this.test = 1;
+        }
+        //static void Test()
+        //{
+        //    test = 1;
+        //}
+    }
+    public class Car:Vehicle
+    {
+        public Car(string owner):base(owner)
+        {
+            //base.Owner = "Tom";
+        }
+        
+        public void Test()
+        {
+            //Vehicle vehicle = new Vehicle("Mark");
+            //vehicle.test = 10;
+            this.test = 10;
+            //Vehicle.Test2();
+        }
+        private void Test2()
+        {
+            test = 10;
+        }
+    }
+    class ModifierTest
+    {
+        public void Main_Mod()
+        {
+            Vehicle vehicle = new Vehicle("0");
+            Console.WriteLine(vehicle.test);
+            //vehicle.test1 = 11;
+            //Vehicle.test = 11;
+            //Vehicle.Test();
+            
+            
+        }
+    }
+
+    delegate void OrderEventHandler (Customer customer, OrderEventArgs e);
+    class Customer
+    {
+        public double Bill { get; set; }
+        public void PayTheBill()
+        {
+            
+            Console.WriteLine("You'll pay ${0}", this.Bill);
+        }
+        //private OrderEventHandler _orderEventHandler;
+        public event OrderEventHandler Order;
+        //{
+        //    add
+        //    {
+        //        this._orderEventHandler += value;
+        //        //Console.WriteLine("I am only one");
+        //    }
+        //    remove
+        //    {
+        //        this._orderEventHandler -= value;
+        //    }
+        //}
+        public void Action()
+        {
+            OrderEventArgs e = new OrderEventArgs();
+            e.DishName = "Sushi";
+            e.Size = "large";
+            this.Order.Invoke(this, e);
+            //this._orderEventHandler.Invoke(this, e);
+            OrderEventArgs e2 = new OrderEventArgs();
+            e2.DishName = "Tofu";
+            e2.Size = "small";
+            //this._orderEventHandler.Invoke(this, e2);
+        }
+    }
+    class OrderEventArgs:EventArgs
+    {
+        public string DishName;
+        public string Size;
+    }
+    class Waiter
+    {
+        public void Action(Customer customer,OrderEventArgs e)
+        {
+            Console.WriteLine("I'll serve you dish-{0}",e.DishName);
+            double price = 10;
+            switch (e.Size)
+            {
+                case "large":
+                    price*=1.5;
+                    break;
+                case "small":
+                    price*=0.5;
+                    break;
+                default:
+                    break;
+            }
+            customer.Bill += price;
+            Console.ReadLine();
+        }
+        
+    }
+
+    class Myform : Form
+    {
+        private TextBox TextBox;
+        private Button Button;
+        public Myform()
+        {
+            this.TextBox = new TextBox();
+            this.Button = new Button();
+            this.Controls.Add(this.TextBox);
+            this.Controls.Add(this.Button);
+            Button.Click += Button_Clicked;
+            //this.Click += Form_Clicked;
         }
 
-        //struct Student
-        //{
-        //    public static int ID;
-        //    public long score;
-        //    //int No;
-        //}
-
-
-
-    }
-    public delegate void Methor(int x, double y);
-    class Delegatetset
-    {
-        private Methor methor;
-       
-
-        public static void Test(int f,double g)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            Console.WriteLine("(0),(1)",f,g);
+            TextBox.Text =DateTime.Now.ToString();
+        }
+
+        private void Form_Clicked(object sender, EventArgs e)
+        {
+            this.Text = DateTime.Now.ToString();
         }
     }
     class Operation
@@ -247,7 +480,7 @@ namespace ConsoleApp1
         public Action DefaultFailureCallback { get; set; }
         public Operation innerOperation { get; set; }
 
-        public object Operate(object input,Action successCallback,Action failureCallback)
+        public object Operate(object input, Action successCallback, Action failureCallback)
         {
             if (successCallback == null)
             {
@@ -306,7 +539,7 @@ namespace ConsoleApp1
 
     class Employee
     {
-        public int ShowAge(string m ,params string[] name)
+        public int ShowAge(string m, params string[] name)
         {
             Staff st1 = new Staff();
             st1.Age = int.Parse(name[0]);
@@ -321,8 +554,8 @@ namespace ConsoleApp1
         {
             stu1 = new Student();
             stu1.Age = 19;
-            Console.WriteLine("{0}-{1}",stu1.GetHashCode(),stu1.Age);
-            
+            Console.WriteLine("{0}-{1}", stu1.GetHashCode(), stu1.Age);
+
         }
     }
     class Staff
@@ -349,9 +582,9 @@ namespace ConsoleApp1
             }
             catch (Exception)
             {
-                throw new Exception ("error");
+                throw new Exception("error");
             }
-            }
+        }
     }
     class Indexer
     {
@@ -361,7 +594,7 @@ namespace ConsoleApp1
         {
             get
             {
-                if(this.scoreDictionnary.ContainsKey(subject))
+                if (this.scoreDictionnary.ContainsKey(subject))
                 {
                     return scoreDictionnary[subject];
                 }
@@ -369,7 +602,7 @@ namespace ConsoleApp1
                 {
                     return null;
                 }
-                
+
             }
             set
             {
@@ -417,7 +650,7 @@ namespace ConsoleApp1
         public bool CanWork
         {
             get { return canWork; }
-            
+
         }
         private void CalculateCanWork()
         {
