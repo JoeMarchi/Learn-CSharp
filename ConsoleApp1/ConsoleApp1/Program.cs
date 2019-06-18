@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using ClassLibrary1.MyNamespace;
 
 namespace ConsoleApp1
 {
@@ -233,6 +234,10 @@ namespace ConsoleApp1
 
             //Console.ReadLine();
 
+            //24 chapter Class declare,Accessibility levels
+            Class1 class1 = new Class1();
+            Console.WriteLine(class1.Add(1,2)); 
+
             //25 Parent class,Child class and Base class,Derived class
             //Car c1 = new Car("Tom");
 
@@ -249,6 +254,7 @@ namespace ConsoleApp1
             //Console.WriteLine(b);
             //Console.WriteLine(b.GetType().IsClass);
             //Console.WriteLine(b.GetType().IsValueType);
+            //30 chapter Generic delegate,Lambda expression,LINQ
             //var deleMod_ex = new DeleMod_ex();
             //deleMod_ex.Result();
             Method_Parameter.CreateOrigin();
@@ -422,7 +428,7 @@ namespace ConsoleApp1
             //this._orderEventHandler.Invoke(this, e2);
         }
     }
-    class OrderEventArgs:EventArgs
+    public class OrderEventArgs:EventArgs
     {
         public string DishName;
         public string Size;
