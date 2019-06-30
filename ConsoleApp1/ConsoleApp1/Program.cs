@@ -235,29 +235,31 @@ namespace ConsoleApp1
             //Console.ReadLine();
 
             //24 chapter Class declare,Accessibility levels
-            Class1 class1 = new Class1();
-            Console.WriteLine(class1.Add(1,2)); 
+            //Class1 class1 = new Class1();
+            //Console.WriteLine(class1.Add(1,2)); 
 
             //25 Parent class,Child class and Base class,Derived class
-            //Car c1 = new Car("Tom");
+            Vehicle c1 = new Car("James");
+            Console.WriteLine(c1.Owner);
+            //26 chapter Overrite and polymorphism
+            c1.Run();
+        //Console.WriteLine(c1.Owner);
 
-            //Console.WriteLine(c1.Owner);
-
-            //int a = 12;
-            ////Console.WriteLine(a.GetType().IsValueType);
-            //Mathod1 mathod = new Mathod1((new ModifierTest()).Main_Mod);
-            //mathod.Invoke();
-            //Console.WriteLine(mathod.GetType().IsClass);
-            ////object b = a;
-            ////object b = new object();
-            //string b = "0";
-            //Console.WriteLine(b);
-            //Console.WriteLine(b.GetType().IsClass);
-            //Console.WriteLine(b.GetType().IsValueType);
-            //30 chapter Generic delegate,Lambda expression,LINQ
-            //var deleMod_ex = new DeleMod_ex();
-            //deleMod_ex.Result();
-            Method_Parameter.CreateOrigin();
+        //int a = 12;
+        ////Console.WriteLine(a.GetType().IsValueType);
+        //Mathod1 mathod = new Mathod1((new ModifierTest()).Main_Mod);
+        //mathod.Invoke();
+        //Console.WriteLine(mathod.GetType().IsClass);
+        ////object b = a;
+        ////object b = new object();
+        //string b = "0";
+        //Console.WriteLine(b);
+        //Console.WriteLine(b.GetType().IsClass);
+        //Console.WriteLine(b.GetType().IsValueType);
+        //30 chapter Generic delegate,Lambda expression,LINQ
+        //var deleMod_ex = new DeleMod_ex();
+        //deleMod_ex.Result();
+        //Method_Parameter.CreateOrigin();
         }
     }
     class DeleMod_ex
@@ -343,8 +345,12 @@ namespace ConsoleApp1
     {
         //protected int test;
         internal int test=2;
-        int test1;
+        protected internal int _test1 { get; set; }
         //internal static int test;
+        internal virtual void Run()
+        {
+            Console.WriteLine("I am running");
+        }
         public Vehicle(string owner)
         {
             this.Owner = owner;
@@ -362,11 +368,14 @@ namespace ConsoleApp1
     }
     public class Car:Vehicle
     {
-        public Car(string owner):base(owner)
+        public Car(string owner):base("George")
         {
-            //base.Owner = "Tom";
+            //this.Owner = owner;
         }
-        
+        internal override void Run()
+        {
+            Console.WriteLine("Car is running");
+        }
         public void Test()
         {
             //Vehicle vehicle = new Vehicle("Mark");
@@ -383,8 +392,8 @@ namespace ConsoleApp1
     {
         public void Main_Mod()
         {
-            Vehicle vehicle = new Vehicle("0");
-            Console.WriteLine(vehicle.test);
+            //Vehicle vehicle = new Vehicle();
+            //Console.WriteLine(vehicle.test);
             //vehicle.test1 = 11;
             //Vehicle.test = 11;
             //Vehicle.Test();
