@@ -243,6 +243,8 @@ namespace ConsoleApp1
             Console.WriteLine(c1.Owner);
             //26 chapter Overrite and polymorphism
             c1.Run();
+
+            //27
         //Console.WriteLine(c1.Owner);
 
         //int a = 12;
