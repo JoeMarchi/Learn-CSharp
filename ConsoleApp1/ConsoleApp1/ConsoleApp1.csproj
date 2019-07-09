@@ -56,6 +56,10 @@
       <Project>{b663ff94-73db-46c1-9b60-b1bd8aba6dd6}</Project>
       <Name>ClassLibrary1</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data structure and algorithm\Data structure and algorithm.csproj">
+      <Project>{4989a209-331d-4f57-a5aa-3f6bc591b9f6}</Project>
+      <Name>Data structure and algorithm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

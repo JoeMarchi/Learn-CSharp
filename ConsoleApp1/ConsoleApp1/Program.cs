@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using ClassLibrary1.MyNamespace;
+using Data_structure_and_algorithm.demo006;
 
 namespace ConsoleApp1
 {
@@ -244,7 +245,6 @@ namespace ConsoleApp1
             //26 chapter Overrite and polymorphism
             c1.Run();
 
-            //27
         //Console.WriteLine(c1.Owner);
 
         //int a = 12;
@@ -262,6 +262,26 @@ namespace ConsoleApp1
         //var deleMod_ex = new DeleMod_ex();
         //deleMod_ex.Result();
         //Method_Parameter.CreateOrigin();
+=======
+            //MyArray myArray = new MyArray();
+            //Console.WriteLine(c1.Owner);
+
+            //int a = 12;
+            ////Console.WriteLine(a.GetType().IsValueType);
+            //Mathod1 mathod = new Mathod1((new ModifierTest()).Main_Mod);
+            //mathod.Invoke();
+            //Console.WriteLine(mathod.GetType().IsClass);
+            ////object b = a;
+            ////object b = new object();
+            //string b = "0";
+            //Console.WriteLine(b);
+            //Console.WriteLine(b.GetType().IsClass);
+            //Console.WriteLine(b.GetType().IsValueType);
+            //30 chapter Generic delegate,Lambda expression,LINQ
+            //var deleMod_ex = new DeleMod_ex();
+            //deleMod_ex.Result();
+            //Method_Parameter.CreateOrigin();
+>>>>>>> ca7806c99e6e976001b09126ffc2b05d2cfe1c19
         }
     }
     class DeleMod_ex
