@@ -176,23 +176,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\marchi\\.nuget\\packages\\": {},
+    "C:\\Users\\marchi-liu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\source\\repos\\ConsoleApp1\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectUniqueName": "C:\\Users\\marchi-liu\\source\\repos\\ConsoleApp1\\ClassLibrary1\\ClassLibrary1.csproj",
       "projectName": "ClassLibrary1",
-      "projectPath": "G:\\source\\repos\\ConsoleApp1\\ClassLibrary1\\ClassLibrary1.csproj",
-      "packagesPath": "C:\\Users\\marchi\\.nuget\\packages\\",
-      "outputPath": "G:\\source\\repos\\ConsoleApp1\\ClassLibrary1\\obj\\",
+      "projectPath": "C:\\Users\\marchi-liu\\source\\repos\\ConsoleApp1\\ClassLibrary1\\ClassLibrary1.csproj",
+      "packagesPath": "C:\\Users\\marchi-liu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marchi-liu\\source\\repos\\ConsoleApp1\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\marchi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marchi-liu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

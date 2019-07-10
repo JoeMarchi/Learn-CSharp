@@ -78,5 +78,35 @@ namespace Data_structure_and_algorithm.demo1
                 Console.WriteLine(j);
             }
         }
+        public void Search(int target)
+        {
+            int index = -1;
+            for (int i = 0; i < _elements.Length; i++)
+            {
+                if (_elements[i] == target)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            Console.WriteLine(index);
+        }
+        public void BinarySearch(int target)
+        {
+            int begin = 0;
+            int end = _elements.Length - 1;
+            int i = 0;
+            while(i > _elements.Length)
+            {
+                if (target == _elements[(begin + end) / 2])
+                {
+                    Console.WriteLine(_elements[(begin + end) / 2]);
+                }
+                else if (target >_elements[(begin + end) / 2])
+                {
+                    
+                }
+            }
+        }
     }
 }

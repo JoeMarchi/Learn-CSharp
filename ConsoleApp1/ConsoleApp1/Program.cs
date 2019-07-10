@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 using ClassLibrary1.MyNamespace;
-using Data_structure_and_algorithm.demo006;
+using Data_structure_and_algorithm.demo1;
 
 namespace ConsoleApp1
 {
