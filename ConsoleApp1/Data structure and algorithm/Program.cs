@@ -26,7 +26,7 @@ namespace Data_structure_and_algorithm
             arr = newarr;
             foreach (int j in arr)
             {
-                Console.WriteLine(j);
+                //Console.WriteLine(j);
             }
             //005 Array destination delete
             int dst1 = 1;
@@ -46,18 +46,34 @@ namespace Data_structure_and_algorithm
             arr = newarr1;
             foreach (int j in arr)
             {
-                Console.WriteLine(j);
+                //Console.WriteLine(j);
             }
             //006 Array of objact-oriented
             MyArray myArray = new MyArray();
-            myArray.Add(1);
-            myArray.Add(2);
-            myArray.Add(3);
-            myArray.Add(48);
-            myArray.Add(58);
-            myArray.Insert(2, 8);
-            myArray.Show();
-
+            try
+            {
+                myArray.Add(1);
+                myArray.Add(2);
+                myArray.Add(3);
+                myArray.Add(4);
+                myArray.Add(5);
+                myArray.Show();
+                myArray.Get(-1);
+                myArray.Insert(-1, 0);
+            }
+            //catch(IndexOutOfRangeException e)
+            //{
+            //    //throw;
+            //    //throw e;
+            //    Console.WriteLine("ERROR");
+            //}
+            finally
+            {
+                myArray.BinarySearch(4);
+            }
+            
+            //myArray.Show();
+            MyArray myArray2 = new MyArray();
         }
     }
 }

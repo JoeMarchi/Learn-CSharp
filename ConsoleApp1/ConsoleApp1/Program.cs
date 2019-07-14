@@ -262,7 +262,7 @@ namespace ConsoleApp1
         //var deleMod_ex = new DeleMod_ex();
         //deleMod_ex.Result();
         //Method_Parameter.CreateOrigin();
-=======
+
             //MyArray myArray = new MyArray();
             //Console.WriteLine(c1.Owner);
 
@@ -281,7 +281,6 @@ namespace ConsoleApp1
             //var deleMod_ex = new DeleMod_ex();
             //deleMod_ex.Result();
             //Method_Parameter.CreateOrigin();
->>>>>>> ca7806c99e6e976001b09126ffc2b05d2cfe1c19
         }
     }
     class DeleMod_ex

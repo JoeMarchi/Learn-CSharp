@@ -27,16 +27,20 @@ namespace Data_structure_and_algorithm.demo1
             newarr[_elements.Length] = element;
             _elements = newarr;
         }
-        public void Insert(int dst,int element)
+        public void Insert(int index,int element)
         {
+            if (index < 0 || index > _elements.Length)
+            {
+                throw new Exception("Error");
+            }
             int[] newarr = new int[_elements.Length + 1];
             for(int i = 0; i < newarr.Length; i++)
             {
-                if (i < dst)
+                if (i < index)
                 {
                     newarr[i] = _elements[i];
                 }
-                else if(i==dst)
+                else if(i==index)
                 {
                     newarr[i] = element;
                 }
@@ -47,20 +51,24 @@ namespace Data_structure_and_algorithm.demo1
             }
                 _elements = newarr;
         }
-        public void Get(int dst)
+        public void Get(int index)
         {
-            Console.WriteLine(_elements[dst]);
+            Console.WriteLine(_elements[index]);
         }
-        public void Set(int dst,int element)
+        public void Set(int index,int element)
         {
-            _elements[dst] = element;
+            _elements[index] = element;
         }
-        public void Delete(int dst)
+        public void Delete(int index)
         {
+            if (index < 0 || index > _elements.Length)
+            {
+                throw new Exception("Error");
+            }
             int[] newarr = new int[_elements.Length - 1];
             for(int i = 0; i < newarr.Length; i++)
             {
-                if (i < dst)
+                if (i < index)
                 {
                     newarr[i] = _elements[i];
                 }
@@ -89,24 +97,38 @@ namespace Data_structure_and_algorithm.demo1
                     break;
                 }
             }
-            Console.WriteLine(index);
+            Console.WriteLine("index1:"+index);
         }
         public void BinarySearch(int target)
         {
+            int index = -1;
             int begin = 0;
             int end = _elements.Length - 1;
-            int i = 0;
-            while(i > _elements.Length)
+            while(true)
             {
-                if (target == _elements[(begin + end) / 2])
+                int mid = (begin + end) / 2;
+                if (begin >= end)
                 {
-                    Console.WriteLine(_elements[(begin + end) / 2]);
+                    break;
                 }
-                else if (target >_elements[(begin + end) / 2])
+                if (target == _elements[mid])
                 {
-                    
+                    index = mid;
+                    break;
+                }
+                else
+                {
+                    if (target > _elements[mid])
+                    {
+                        begin = mid + 1;
+                    }
+                    if (target < _elements[mid])
+                    {
+                        end = mid - 1;
+                    }
                 }
             }
+            Console.WriteLine("index2:"+index);
         }
     }
 }
