@@ -8,37 +8,37 @@ namespace Data_structure_and_algorithm.demo1
 {
     class MyArray
     {
-        private int[] _array;
+        private int[] _elements;
         public MyArray()
         {
-            _array = new int[0];
+            _elements = new int[0];
         }
         public int Size()
         {
-            return _array.Length;
+            return _elements.Length;
         }
         public void Add(int element)
         {
-            int[] newarr = new int[_array.Length + 1];
-            for (int i = 0; i < _array.Length; i++)
+            int[] newarr = new int[_elements.Length + 1];
+            for ( int i = 0; i < _elements.Length; i++)
             {
-                newarr[i] = _array[i];
+                newarr[i] = _elements[i];
             }
-            newarr[_array.Length] = element;
-            _array = newarr;
+            newarr[_elements.Length] = element;
+            _elements = newarr;
         }
         public void Insert(int index,int element)
         {
-            if (index < 0 || index > _array.Length)
+            if (index < 0 || index > _elements.Length)
             {
                 throw new Exception("Error");
             }
-            int[] newarr = new int[_array.Length + 1];
+            int[] newarr = new int[_elements.Length + 1];
             for(int i = 0; i < newarr.Length; i++)
             {
                 if (i < index)
                 {
-                    newarr[i] = _array[i];
+                    newarr[i] = _elements[i];
                 }
                 else if(i==index)
                 {
@@ -46,42 +46,42 @@ namespace Data_structure_and_algorithm.demo1
                 }
                 else
                 {
-                    newarr[i] = _array[i - 1];
+                    newarr[i] = _elements[i - 1];
                 }
             }
-                _array = newarr;
+                _elements = newarr;
         }
         public void Get(int index)
         {
-            Console.WriteLine(_array[index]);
+            Console.WriteLine(_elements[index]);
         }
         public void Set(int index,int element)
         {
-            _array[index] = element;
+            _elements[index] = element;
         }
         public void Delete(int index)
         {
-            if (index < 0 || index > _array.Length)
+            if (index < 0 || index > _elements.Length)
             {
                 throw new Exception("Error");
             }
-            int[] newarr = new int[_array.Length - 1];
+            int[] newarr = new int[_elements.Length - 1];
             for(int i = 0; i < newarr.Length; i++)
             {
                 if (i < index)
                 {
-                    newarr[i] = _array[i];
+                    newarr[i] = _elements[i];
                 }
                 else
                 {
-                    newarr[i] = _array[i + 1];
+                    newarr[i] = _elements[i + 1];
                 }
             }
-            _array = newarr;
+            _elements = newarr;
         }
         public void Show()
         {
-            foreach(int j in _array)
+            foreach(int j in _elements)
             {
                 Console.WriteLine(j);
             }
@@ -89,9 +89,9 @@ namespace Data_structure_and_algorithm.demo1
         public void Search(int target)
         {
             int index = -1;
-            for (int i = 0; i < _array.Length; i++)
+            for (int i = 0; i < _elements.Length; i++)
             {
-                if (_array[i] == target)
+                if (_elements[i] == target)
                 {
                     index = i;
                     break;
@@ -103,7 +103,7 @@ namespace Data_structure_and_algorithm.demo1
         {
             int index = -1;
             int begin = 0;
-            int end = _array.Length - 1;
+            int end = _elements.Length - 1;
             while(true)
             {
                 int mid = (begin + end) / 2;
@@ -111,18 +111,18 @@ namespace Data_structure_and_algorithm.demo1
                 {
                     break;
                 }
-                if (target == _array[mid])
+                if (target == _elements[mid])
                 {
                     index = mid;
                     break;
                 }
                 else
                 {
-                    if (target > _array[mid])
+                    if (target > _elements[mid])
                     {
                         begin = mid + 1;
                     }
-                    if (target < _array[mid])
+                    if (target < _elements[mid])
                     {
                         end = mid - 1;
                     }
