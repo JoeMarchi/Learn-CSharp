@@ -90,17 +90,24 @@ namespace Data_structure_and_algorithm
             ////myStack.Show();
             //Console.WriteLine(myStack.IsEmpty());
 
-            //010 Queue of objact-oriented
-            MyQueue myQueue = new MyQueue();
-            myQueue.Put(1);
-            myQueue.Put(2);
-            myQueue.Put(3);
-            myQueue.Put(4);
-            myQueue.Put(5);
-            myQueue.Pull();
-            myQueue.Pull();
-            myQueue.Pull();
-            myQueue.Show();
+            //011 Queue of objact-oriented
+            //MyQueue myQueue = new MyQueue();
+            //myQueue.Put(1);
+            //myQueue.Put(2);
+            //myQueue.Put(3);
+            //myQueue.Put(4);
+            //myQueue.Put(5);
+            //myQueue.Pull();
+            //myQueue.Pull();
+            //myQueue.Pull();
+            //myQueue.Show();
+            //012 Linked list of objact-oriented
+            Node n1 = new Node(1);
+            Node n2 = new Node(2);
+            Node n3 = new Node(3);
+            n1.Append(n2).Append(n3).Append(new Node(4));
+            
+            n1.Next().Next().Getdata();
         }
     }
 }
