@@ -106,7 +106,11 @@ namespace Data_structure_and_algorithm
             Node n2 = new Node(2);
             Node n3 = new Node(3);
             n1.Append(n2).Append(n3).Append(new Node(4));
-            n1.Next().RemoveNext().Append(new Node(5)).Getdata();
+            n1.Next().After(new Node(5)).Getdata();
+            LoopNode ln1 = new LoopNode(1);
+            LoopNode ln2 = new LoopNode(2);
+            LoopNode ln3 = new LoopNode(3);
+            ln1.Append(ln2).Append(ln3);
             //n1.Delete(n2);
             n1.Show();
         }

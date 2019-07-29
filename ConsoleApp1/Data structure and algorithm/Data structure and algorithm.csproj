@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="demo1\MyArray.cs" />
+    <Compile Include="demo2\LoopNode.cs" />
     <Compile Include="demo2\MyQueue.cs" />
     <Compile Include="demo2\MyStack.cs" />
     <Compile Include="demo2\Node.cs" />

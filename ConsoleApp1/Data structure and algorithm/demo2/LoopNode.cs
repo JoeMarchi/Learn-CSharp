@@ -6,41 +6,32 @@ using System.Threading.Tasks;
 
 namespace Data_structure_and_algorithm.demo2
 {
-    class Node
+    class LoopNode
     {
-        public Node(int data)
+        public LoopNode(int data)
         {
             this._data = data;
         }
             
         private int _data;
-        private Node _next;
-        public Node Append(Node node)
+        private LoopNode _next;
+
+        public LoopNode After(LoopNode node)
         {
-            Node currentNode = this;
-            while (currentNode.Next() != null)
+            LoopNode currentNode = this;
+            LoopNode nextNode = this._next;
+            while (nextNode != null)
             {
-                Node nextNode = currentNode.Next();
-                currentNode = nextNode;
+                nextNode = currentNode._next;
             }
             currentNode._next = node;
-            return node;
-        }
-        public Node After(Node node)
-        {
-            Node currentNode = this;
-            Node nextNode = this._next;
-            if (currentNode._next != null)
-            {
-                node._next = nextNode;
-            }
-            currentNode._next = node;
+            
             return currentNode;
         }
-        public Node RemoveNext()
+        public LoopNode RemoveNext()
         {
-            Node endNode=this;
-            Node nextNode = this.Next().Next();
+            LoopNode endNode=this;
+            LoopNode nextNode = this.Next().Next();
             this._next = nextNode;
             while (nextNode._next != null)
             {
@@ -49,51 +40,46 @@ namespace Data_structure_and_algorithm.demo2
             }
             return endNode;
         }
-        public void Delete(Node node)
+        public void Delete(LoopNode node)
         {
-            Node prevNode = this;
-            Node currentNode = this;
+            LoopNode prevNode = this;
+            LoopNode currentNode = this;
             while (currentNode != null)
             {
                 if(currentNode.Next() == node)
                 {
-                    Node nextNode = currentNode.Next().Next();
+                    LoopNode nextNode = currentNode.Next().Next();
                     prevNode = currentNode;
                     currentNode = nextNode;
                     break;
                 }
                 else
                 {
-                    Node nextNode = currentNode.Next();
+                    LoopNode nextNode = currentNode.Next();
                     currentNode = nextNode;
                 }
             }
             prevNode._next = currentNode;
             //return prevNode;
         }
-        public Node Next()
+        public LoopNode Next()
         {
             return this._next;
         }
-        public Node Getdata()
+        public LoopNode Getdata()
         {
             Console.WriteLine(this._data);
             return this;
         }
         public void Show()
         {
-            Node currentNode = this;
+            LoopNode currentNode = this;
             while (currentNode != null)
             {
                 Console.Write(currentNode._data);
                 currentNode = currentNode.Next();
             }
             Console.WriteLine();
-        }
-        public bool IsLast()
-        {
-            Console.WriteLine(this._next == null);
-            return this._next == null;
         }
     }
 }
