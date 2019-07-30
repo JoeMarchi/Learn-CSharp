@@ -11,22 +11,17 @@ namespace Data_structure_and_algorithm.demo2
         public LoopNode(int data)
         {
             this._data = data;
+            _next = this;
         }
             
         private int _data;
         private LoopNode _next;
 
-        public LoopNode After(LoopNode node)
+        public void After(LoopNode node)
         {
-            LoopNode currentNode = this;
-            LoopNode nextNode = this._next;
-            while (nextNode != null)
-            {
-                nextNode = currentNode._next;
-            }
-            currentNode._next = node;
-            
-            return currentNode;
+            LoopNode nextNext = _next;
+            this._next = node;
+            node._next = nextNext;
         }
         public LoopNode RemoveNext()
         {

@@ -89,7 +89,6 @@ namespace Data_structure_and_algorithm
             ////myStack.Peek();
             ////myStack.Show();
             //Console.WriteLine(myStack.IsEmpty());
-
             //011 Queue of objact-oriented
             //MyQueue myQueue = new MyQueue();
             //myQueue.Put(1);
@@ -107,11 +106,13 @@ namespace Data_structure_and_algorithm
             Node n3 = new Node(3);
             n1.Append(n2).Append(n3).Append(new Node(4));
             n1.Next().After(new Node(5)).Getdata();
+            //n1.Delete(n2);
+            //015 LoopNode of linked list
             LoopNode ln1 = new LoopNode(1);
             LoopNode ln2 = new LoopNode(2);
             LoopNode ln3 = new LoopNode(3);
-            ln1.Append(ln2).Append(ln3);
-            //n1.Delete(n2);
+            ln1.After(ln2);
+            ln2.After(ln3);
             n1.Show();
         }
     }

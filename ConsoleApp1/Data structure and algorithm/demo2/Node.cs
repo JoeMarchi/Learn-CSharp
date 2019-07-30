@@ -11,6 +11,7 @@ namespace Data_structure_and_algorithm.demo2
         public Node(int data)
         {
             this._data = data;
+            //_next = this;
         }
             
         private int _data;
