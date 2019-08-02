@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data_structure_and_algorithm.demo1;
 using Data_structure_and_algorithm.demo2;
+using Data_structure_and_algorithm.demo3;
 
 
 namespace Data_structure_and_algorithm
@@ -101,19 +102,37 @@ namespace Data_structure_and_algorithm
             //myQueue.Pull();
             //myQueue.Show();
             //012 Linked list of objact-oriented
-            Node n1 = new Node(1);
-            Node n2 = new Node(2);
-            Node n3 = new Node(3);
-            n1.Append(n2).Append(n3).Append(new Node(4));
-            n1.Next().After(new Node(5)).Getdata();
-            //n1.Delete(n2);
-            //015 LoopNode of linked list
-            LoopNode ln1 = new LoopNode(1);
-            LoopNode ln2 = new LoopNode(2);
-            LoopNode ln3 = new LoopNode(3);
-            ln1.After(ln2);
-            ln2.After(ln3);
-            n1.Show();
+            //Node n1 = new Node(1);
+            //Node n2 = new Node(2);
+            //Node n3 = new Node(3);
+            //n1.Append(n2).Append(n3).Append(new Node(4));
+            //n1.Next().After(new Node(5)).Getdata();
+            ////n1.Delete(n2);
+            ////n1.Show();
+            ////015 LoopNode of linked list
+            //LoopNode ln1 = new LoopNode(1);
+            //LoopNode ln2 = new LoopNode(2);
+            //LoopNode ln3 = new LoopNode(3);
+            //LoopNode ln4 = new LoopNode(4);
+            //ln1.After(ln3);
+            //ln3.After(ln2);
+            //ln2.After(ln4);
+            ////ln1.Show();
+            ////016 DoubleNode of linked list
+            //DoubleNode dn1 = new DoubleNode(1);
+            //DoubleNode dn2 = new DoubleNode(2);
+            //DoubleNode dn3 = new DoubleNode(3);
+            //DoubleNode dn4 = new DoubleNode(4);
+            //dn1.After(dn3);
+            //dn3.After(dn2);
+            //dn2.After(dn4);
+            ////dn2.Show();
+            //dn1.ShowTest();
+            //dn2.Modify(dn1);
+            //dn1.ShowTest();
+            //017 Recursive and fibonacci
+            Recursive rc = new Recursive();
+            rc.Print(0);
         }
     }
 }
