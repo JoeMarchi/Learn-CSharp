@@ -75,6 +75,7 @@ namespace Data_structure_and_algorithm
             //    myArray.BinarySearch(4);
             //}
 
+
             //myArray.Show();
             //MyArray myArray2 = new MyArray();
             //009 Stack of objact-oriented
@@ -131,8 +132,10 @@ namespace Data_structure_and_algorithm
             //dn2.Modify(dn1);
             //dn1.ShowTest();
             //017 Recursive and fibonacci
-            Recursive rc = new Recursive();
-            rc.Print(0);
+            //Recursive rc = new Recursive();
+            //rc.Print(0);
+            Fibonacci.Calculation(1, 1);
+
         }
     }
 }

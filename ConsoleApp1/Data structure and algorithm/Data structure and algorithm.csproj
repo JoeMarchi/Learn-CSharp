@@ -49,6 +49,7 @@
     <Compile Include="demo2\MyQueue.cs" />
     <Compile Include="demo2\MyStack.cs" />
     <Compile Include="demo2\Node.cs" />
+    <Compile Include="demo3\Fibonacci.cs" />
     <Compile Include="demo3\Recursive.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
