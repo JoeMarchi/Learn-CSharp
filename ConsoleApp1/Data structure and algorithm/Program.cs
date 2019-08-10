@@ -134,8 +134,10 @@ namespace Data_structure_and_algorithm
             //017 Recursive and fibonacci
             //Recursive rc = new Recursive();
             //rc.Print(0);
-            Fibonacci.Calculation(1, 1);
-
+            //Fibonacci.Calculation(1, 1);
+            //int i = Fibonacci.FibonacciTarget(13);
+            //Console.WriteLine(i);
+            Hanoi.HanoiAlgorithm(4, "A", "C", "B");
         }
     }
 }
