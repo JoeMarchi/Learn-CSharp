@@ -218,21 +218,19 @@ namespace ConsoleApp1
             //op3.innerOperation = op2;
             //op2.innerOperation = op1;
             //op3.Operate(new object(), null, null);
-
             //Myform myform = new Myform();
             //myform.ShowDialog();
 
             //22 chapter custom event problem
             //Methor x = new Methor(Delegatetset.Test);
-
             //x.Invoke(1, 2);
+
             //22 chapter custom event problem(customer)
             //Customer customer = new Customer();
             //Waiter waiter = new Waiter();
             //customer.Order += waiter.Action;
             //customer.Action();
             //customer.PayTheBill();
-
             //Console.ReadLine();
 
             //24 chapter Class declare,Accessibility levels
@@ -240,30 +238,9 @@ namespace ConsoleApp1
             //Console.WriteLine(class1.Add(1,2)); 
 
             //25 Parent class,Child class and Base class,Derived class
-            Vehicle c1 = new Car("James");
-            Console.WriteLine(c1.Owner);
-            //26 chapter Overrite and polymorphism
-            c1.Run();
-
-        //Console.WriteLine(c1.Owner);
-
-        //int a = 12;
-        ////Console.WriteLine(a.GetType().IsValueType);
-        //Mathod1 mathod = new Mathod1((new ModifierTest()).Main_Mod);
-        //mathod.Invoke();
-        //Console.WriteLine(mathod.GetType().IsClass);
-        ////object b = a;
-        ////object b = new object();
-        //string b = "0";
-        //Console.WriteLine(b);
-        //Console.WriteLine(b.GetType().IsClass);
-        //Console.WriteLine(b.GetType().IsValueType);
-        //30 chapter Generic delegate,Lambda expression,LINQ
-        //var deleMod_ex = new DeleMod_ex();
-        //deleMod_ex.Result();
-        //Method_Parameter.CreateOrigin();
-
-            //MyArray myArray = new MyArray();
+            //Vehicle c1 = new Car("James");
+            //Console.WriteLine(c1.Owner);
+            //c1.Run();
             //Console.WriteLine(c1.Owner);
 
             //int a = 12;
@@ -277,11 +254,84 @@ namespace ConsoleApp1
             //Console.WriteLine(b);
             //Console.WriteLine(b.GetType().IsClass);
             //Console.WriteLine(b.GetType().IsValueType);
+
             //30 chapter Generic delegate,Lambda expression,LINQ
             //var deleMod_ex = new DeleMod_ex();
             //deleMod_ex.Result();
             //Method_Parameter.CreateOrigin();
+            //26 chapter override and polymorphism
+            //Animal T1=new Teacher();
+            //T1.Run();
+            //27 abstract class and open-close principle
+            //VehicleAbstract car = new Race();
+            //car.Run();
+            //28 interface,dependency inversion,unit test
+            Driver Linda = new Women(new Race());
+            Linda.DriveCar();
+            //29 instence segregation,reflection,attribute,dependency injection
+
         }
+    }
+
+    interface IVehicle
+    {
+        void Run();
+        void Stop();
+    }
+
+    abstract class VehicleAbstract:IVehicle
+    {
+        public abstract void Run();
+
+        public void Stop()
+        {
+            Console.WriteLine("Stop");
+        }
+    }
+
+    abstract class Driver
+    {
+        internal abstract void DriveCar();
+    }
+
+    class Women : Driver
+    {
+        private IVehicle _vehicle;
+        public Women(IVehicle vehicle)
+        {
+            _vehicle = vehicle;
+        }
+        internal override void DriveCar()
+        {
+            _vehicle.Run();
+            _vehicle.Stop();
+        }
+    }
+    class Men:Driver
+    {
+        private IVehicle _vehicle;
+        internal override void DriveCar()
+        {
+            _vehicle.Run();
+            _vehicle.Stop();
+        }
+    }
+
+    class Truck:VehicleAbstract
+    {
+        public override void Run()
+        {
+            Console.WriteLine("Truck is running");
+        }
+
+    }
+    class Race:VehicleAbstract
+    {
+        public override void Run()
+        {
+            Console.WriteLine("Race is running");
+        }
+
     }
     class DeleMod_ex
     {
@@ -350,17 +400,17 @@ namespace ConsoleApp1
 
 
 
-    //public delegate void Methor(int x, double y);
-    //class Delegatetset
-    //{
-    //    private Methor methor;
+    public delegate void Methor(int x, double y);
+    class Delegatetset
+    {
+        private Methor methor;
 
 
-    //    public static void Test(int f, double g)
-    //    {
-    //        Console.WriteLine("(0),(1)", f, g);
-    //    }
-    //}
+        public static void Test(int f, double g)
+        {
+            Console.WriteLine("(0),(1)", f, g);
+        }
+    }
 
     public class Vehicle
     {
@@ -741,27 +791,70 @@ namespace ConsoleApp1
             Console.WriteLine(AverageScore);
         }
     }
-    class Teacher
+    class Teacher:Human
     {
+        public Teacher()
+        {
+
+        }
+
         public void Teach()
         {
             Console.WriteLine("I am a teacher");
         }
+        public void Run()
+        {
+            Console.WriteLine("Teacher is running");
+        }
     }
-    class Animal : Teacher
+    class Animal
     {
-        public static void Eat()
+        public Animal()
+        {
+
+        }
+        public void Eat()
         {
             Console.WriteLine("I am a animal");
+        }
+        public virtual void Run()
+        {
+            Console.WriteLine("Animal is running");
         }
     }
     class Human : Animal
     {
+        public Human()
+        {
+
+        }
         public static void Sleep()
         {
             Console.WriteLine("I am a human");
         }
+        public override void Run()
+        {
+            Console.WriteLine("Human is running");
+        }
     }
+    interface IPowerSupply:IEnumerable
+    {
+        void GetPower();
+    }
+    class DeskFan : IPowerSupply
+    {
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetPower()
+        {
+            throw new NotImplementedException();
+        }
+        
+    }
+    
 }
 
 

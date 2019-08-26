@@ -8,7 +8,13 @@ namespace Data_structure_and_algorithm.demo3
 {
     class Hanoi
     {
-        public static void HanoiAlgorithm(int n,string source,string targat,string temp)
+        public Hanoi()
+        {
+
+        }
+        public int Test;
+        private int TestP;
+        public int HanoiAlgorithm(int n,string source,string targat,string temp)
         {
             if (n > 0)
             {
@@ -16,6 +22,7 @@ namespace Data_structure_and_algorithm.demo3
                 Console.WriteLine($"{source}=>{targat},{n}");
                 HanoiAlgorithm(n - 1, temp, targat, source);
             }
+            return 1;
         }
     }
 }

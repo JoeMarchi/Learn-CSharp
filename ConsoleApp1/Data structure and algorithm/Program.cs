@@ -137,7 +137,10 @@ namespace Data_structure_and_algorithm
             //Fibonacci.Calculation(1, 1);
             //int i = Fibonacci.FibonacciTarget(13);
             //Console.WriteLine(i);
-            Hanoi.HanoiAlgorithm(4, "A", "C", "B");
+            //018 Hanoi problem
+            Hanoi h1 = new Hanoi();
+            Console.WriteLine("1");
+            //Hanoi.HanoiAlgorithm(4, "A", "C", "B");
         }
     }
 }
