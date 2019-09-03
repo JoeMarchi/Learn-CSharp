@@ -266,17 +266,80 @@ namespace ConsoleApp1
             //VehicleAbstract car = new Race();
             //car.Run();
             //28 interface,dependency inversion,unit test
-            Driver Linda = new Women(new Race());
-            Linda.DriveCar();
+            //Driver Linda = new Women(new Race());
+            //Linda.Drive();
             //29 instence segregation,reflection,attribute,dependency injection
-
+            Driver Mark = new Men(new MediumTank());
+            Driver driver = Mark;
+            
+            //Mark.Drive();
+            //30 generic,partial class,enum,struct
+            Action<int,int> action = DeleMod_ex.Action_exp;
         }
     }
-
+    interface IWeapon
+    {
+        void Fire();
+    }
     interface IVehicle
     {
         void Run();
         void Stop();
+    }
+    interface ITank : IVehicle, IWeapon
+    {
+
+    }
+    class LightTank : ITank
+    {
+        public void Fire()
+        {
+            Console.WriteLine("Boom!");
+        }
+
+        public void Run()
+        {
+            Console.WriteLine("LightTank is running");
+        }
+
+        public void Stop()
+        {
+            Console.WriteLine("Stop!");
+        }
+    }
+    class MediumTank : ITank
+    {
+        public void Fire()
+        {
+            Console.WriteLine("Boom!!");
+        }
+
+        public void Run()
+        {
+            Console.WriteLine("MediumTank is running");
+        }
+
+        public void Stop()
+        {
+            Console.WriteLine("Stop!!");
+        }
+    }
+    class HeavyTank : ITank
+    {
+        public void Fire()
+        {
+            Console.WriteLine("Boom!!!");
+        }
+
+        public void Run()
+        {
+            Console.WriteLine("HeavyTank is running");
+        }
+
+        public void Stop()
+        {
+            Console.WriteLine("Stop!!!");
+        }
     }
 
     abstract class VehicleAbstract:IVehicle
@@ -291,17 +354,17 @@ namespace ConsoleApp1
 
     abstract class Driver
     {
-        internal abstract void DriveCar();
+        internal abstract void Drive();
     }
 
-    class Women : Driver
+    class Women:Driver
     {
         private IVehicle _vehicle;
         public Women(IVehicle vehicle)
         {
             _vehicle = vehicle;
         }
-        internal override void DriveCar()
+        internal override void Drive()
         {
             _vehicle.Run();
             _vehicle.Stop();
@@ -309,8 +372,13 @@ namespace ConsoleApp1
     }
     class Men:Driver
     {
+        public int Age { get; set; }
         private IVehicle _vehicle;
-        internal override void DriveCar()
+        public Men(IVehicle vehicle)
+        {
+            _vehicle = vehicle;
+        }
+        internal override void Drive()
         {
             _vehicle.Run();
             _vehicle.Stop();
@@ -357,7 +425,7 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Action_ex");
         }
-        static void Action_exp(int x,int y)
+        public static void Action_exp(int x,int y)
         {
             Console.WriteLine(x*y);
         }
