@@ -260,7 +260,9 @@ namespace ConsoleApp1
             //deleMod_ex.Result();
             //Method_Parameter.CreateOrigin();
             //26 chapter override and polymorphism
-            //Animal T1=new Teacher();
+            Animal T1=new Teacher();
+            
+            
             //T1.Run();
             //27 abstract class and open-close principle
             //VehicleAbstract car = new Race();
@@ -269,12 +271,16 @@ namespace ConsoleApp1
             //Driver Linda = new Women(new Race());
             //Linda.Drive();
             //29 instence segregation,reflection,attribute,dependency injection
-            Driver Mark = new Men(new MediumTank());
-            Driver driver = Mark;
-            
+            Driver mark = new Men(new MediumTank(),123) { Age = 1 };
+            //Driver driver = mark;
+            //driver.Age = 2;
+            //Console.WriteLine(mark.Age);
+
             //Mark.Drive();
             //30 generic,partial class,enum,struct
-            Action<int,int> action = DeleMod_ex.Action_exp;
+            //Action<int,int> action = DeleMod_ex.Action_exp;
+            Men joe = new Men(new LightTank(),123);
+            Console.WriteLine(joe.Age);
         }
     }
     interface IWeapon
@@ -354,6 +360,7 @@ namespace ConsoleApp1
 
     abstract class Driver
     {
+        internal abstract int Age { get; set; }
         internal abstract void Drive();
     }
 
@@ -364,6 +371,9 @@ namespace ConsoleApp1
         {
             _vehicle = vehicle;
         }
+
+        internal override int Age { get; set; }
+
         internal override void Drive()
         {
             _vehicle.Run();
@@ -372,11 +382,14 @@ namespace ConsoleApp1
     }
     class Men:Driver
     {
-        public int Age { get; set; }
+        private int _ctorTest { get; set; }
+        internal override int Age { get; set; }
         private IVehicle _vehicle;
-        public Men(IVehicle vehicle)
+        public Men(IVehicle vehicle,int ctorTest)
         {
             _vehicle = vehicle;
+            _ctorTest = ctorTest;
+            Age = _ctorTest;
         }
         internal override void Drive()
         {
@@ -861,10 +874,6 @@ namespace ConsoleApp1
     }
     class Teacher:Human
     {
-        public Teacher()
-        {
-
-        }
 
         public void Teach()
         {
