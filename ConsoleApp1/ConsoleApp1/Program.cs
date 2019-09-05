@@ -261,9 +261,8 @@ namespace ConsoleApp1
             //Method_Parameter.CreateOrigin();
             //26 chapter override and polymorphism
             Animal T1=new Teacher();
-            
-            
-            //T1.Run();
+
+            T1.Run();
             //27 abstract class and open-close principle
             //VehicleAbstract car = new Race();
             //car.Run();
@@ -271,7 +270,7 @@ namespace ConsoleApp1
             //Driver Linda = new Women(new Race());
             //Linda.Drive();
             //29 instence segregation,reflection,attribute,dependency injection
-            Driver mark = new Men(new MediumTank(),123) { Age = 1 };
+            //Driver mark = new Men(new MediumTank(),123) { Age = 1 };
             //Driver driver = mark;
             //driver.Age = 2;
             //Console.WriteLine(mark.Age);
@@ -281,8 +280,20 @@ namespace ConsoleApp1
             //Action<int,int> action = DeleMod_ex.Action_exp;
             Men joe = new Men(new LightTank(),123);
             Console.WriteLine(joe.Age);
+            decimal test = 1.1m;
+
+            //ex001 generic delegate,lambda expression,linq
+            Test<double, int> test1 = new Test<double, int>(Test);
+            Console.WriteLine(test1.Invoke(1, 2));
+        }
+        static double Test(double a,int b)
+        {
+            double x;
+            x = a + b;
+            return x;
         }
     }
+    delegate T1 Test<T1, T2>(T1 a, T2 b);
     interface IWeapon
     {
         void Fire();
@@ -874,12 +885,16 @@ namespace ConsoleApp1
     }
     class Teacher:Human
     {
+        public Teacher()
+        {
+
+        }
 
         public void Teach()
         {
             Console.WriteLine("I am a teacher");
         }
-        public void Run()
+        public override void Run()
         {
             Console.WriteLine("Teacher is running");
         }
